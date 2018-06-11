@@ -61,7 +61,14 @@
   background-position: 20px 140px, center 156px;
 }
 
-
+:root .m-table-cell-wrapper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border-style: none;
+}
 
 :root div.m-encrypt-frame[id^="eFrame"] {
   background: rgba(254,251,243,.8);

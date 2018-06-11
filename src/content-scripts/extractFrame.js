@@ -62,6 +62,15 @@ export default class ExtractFrame {
   }
 
   _renderFrame() {
+    /* Position absolute inside table cells is unstable. To prevent this,
+       we add an inner <div style="position:relative;..." inside this
+       table cell, wrap it around all cell childs */
+    if (this._pgpElement.prop('offsetParent').nodeName  === 'TD') {
+      const TD = $(this._pgpElement.prop('offsetParent'));
+      const innerDiv = $('<div/>', {'class': 'm-table-cell-wrapper'});
+      TD.wrapInner(innerDiv);
+    }
+
     this._eFrame = $('<div/>', {
       id: `eFrame-${this.id}`,
       'class': 'm-extract-frame m-cursor',
